@@ -63,17 +63,15 @@ def bills(value):
 def format_base(value, base, digit_letters):
 	# Formater un nombre dans une base donné en utilisant les lettres fournies pour les chiffres<
 	# `digits_letters[0]` Nous donne la lettre pour le chiffre 0, ainsi de suite.
-
 	result = ""
-
 	abs_value = abs(value)
 	while abs_value != 0:
-
-
+		digit_value = abs_value % base #42%16=10
+		result += digit_letters[digit_value]  #on va chercher la lettre à la position 10(A)
+		abs_value //= base #42//16=2
 	if value < 0:
-		# TODO: Ne pas oublier d'ajouter '-' devant pour les nombres négatifs.
-		pass
-	return result
+		result += "-" #On rajoute un signe négatif si value < 0
+	return result[::-1] # [start:stop:step] on inverse le step pour que A2 = 2A
 
 
 if __name__ == "__main__":
