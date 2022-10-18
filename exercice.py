@@ -34,37 +34,46 @@ def average(values):
 #
 def bills(value):
 	# TODO: Calculez le nombre de billets de 20$, 10$ et 5$ et pièces de 1$ à remettre pour représenter la valeur.
+	twenties = 0
+	tens = 0
+	fives = 0
+	twos = 0
 	while value != 0:
 		if value >= 20:
-			twenties = value % 20
-			print(twenties)
-			pass
+			twenties = value // 20
+			value = value % 20
+
+
 		elif value >= 10:
-			reste = value - twenties*20
-			tens = int(reste / 10)
-			print(tens)
+			tens = value // 10
+			value = twenties % 10
 
-			pass
+
 		elif value >= 5:
-			reste =value -(twenties*20 + tens*10)
+			fives = value // 5
+			value = value % 5
 
-			pass
+
 		elif value >= 1:
-			ones = fives / 1
-			pass
-	return (twenties, tens, fives, ones);
+			twos = value // 1
+			value = 0
 
-# def format_base(value, base, digit_letters):
-# 	# Formater un nombre dans une base donné en utilisant les lettres fournies pour les chiffres<
-# 	# `digits_letters[0]` Nous donne la lettre pour le chiffre 0, ainsi de suite.
-# 	result = ""
-# 	abs_value = abs(value)
-# 	while abs_value != 0:
-# 		pass
-# 	if value < 0:
-# 		# TODO: Ne pas oublier d'ajouter '-' devant pour les nombres négatifs.
-# 		pass
-# 	return result
+	return (twenties, tens, fives, twos);
+
+def format_base(value, base, digit_letters):
+	# Formater un nombre dans une base donné en utilisant les lettres fournies pour les chiffres<
+	# `digits_letters[0]` Nous donne la lettre pour le chiffre 0, ainsi de suite.
+
+	result = ""
+
+	abs_value = abs(value)
+	while abs_value != 0:
+
+
+	if value < 0:
+		# TODO: Ne pas oublier d'ajouter '-' devant pour les nombres négatifs.
+		pass
+	return result
 
 
 if __name__ == "__main__":
@@ -72,4 +81,4 @@ if __name__ == "__main__":
 	print(orthogonal((1, 1), (-1, 1)))
 	print(average([1, 4, -2, 10]))
 	print(bills(137))
-	# print(format_base(-42, 16, "0123456789ABCDEF"))
+	print(format_base(-42, 16, "0123456789ABCDEF"))
